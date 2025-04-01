@@ -173,7 +173,7 @@ Add the following script to your **`package.json`**:
 Run the test using:
 
 ```sh
-yarn cucumber .\cucumber\features\Login.feature
+yarn cucumber ./cucumber/features/childCare.feature
 ```
 ### **Step 9: Results**
 ![alt text](image.png)
