@@ -1,0 +1,113 @@
+[
+  {
+    "description": "  Validate child care center details.",
+    "elements": [
+      {
+        "description": "",
+        "id": "find-a-child-care-center;view-child-center-address-on-the-map",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "View child center address on the map",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "user clicks on the \"Find a Center\" option",
+            "match": {
+              "location": "cucumber\\steps\\childCare.ts:4"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1501999,
+              "error_message": "TypeError: Cannot read properties of undefined (reading 'locator')\n    at ChildCarePage.<anonymous> (C:\\workspace\\brighthorizons-client\\cucumber\\pages\\ChildCarePage.ts:7:8)\n    at C:\\workspace\\brighthorizons-client\\cucumber\\pages\\ChildCarePage.ts:8:71\n    at __awaiter (C:\\workspace\\brighthorizons-client\\cucumber\\pages\\ChildCarePage.ts:4:12)\n    at ChildCarePage.clickOnFindCenter (C:\\workspace\\brighthorizons-client\\cucumber\\pages\\ChildCarePage.ts:17:16)\n    at World.<anonymous> (C:\\workspace\\brighthorizons-client\\cucumber\\steps\\childCare.ts:7:23)\n    at C:\\workspace\\brighthorizons-client\\cucumber\\steps\\childCare.ts:8:71"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "user confirms the \"child-care-locator\" as a part of its URL",
+            "match": {
+              "location": "cucumber\\steps\\childCare.ts:10"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "user selects the \"New York\" location",
+            "match": {
+              "location": "cucumber\\steps\\childCare.ts:19"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "user verifies the search results count",
+            "match": {
+              "location": "cucumber\\steps\\childCare.ts:25"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "user clicks on the first child care center",
+            "match": {
+              "location": "cucumber\\steps\\childCare.ts:31"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "user compares the address with the map view",
+            "match": {
+              "location": "cucumber\\steps\\childCare.ts:37"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "find-a-child-care-center",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Find a Child Care Center",
+    "tags": [
+      {
+        "name": "@regression",
+        "line": 1
+      }
+    ],
+    "uri": "cucumber\\features\\childCare.feature"
+  }
+]
