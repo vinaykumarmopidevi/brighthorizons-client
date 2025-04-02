@@ -94,16 +94,16 @@ Create **`cucumber/features/example.feature`**:
 
 ```gherkin
 @regression
-Feature: Find a Child Care Center  
+Feature: Find a Child Care Center
   Validate child care center details.
 
-  Scenario: View child center address on the map  
-    Given user clicks on the "Find a Center" option  
-    And user confirms the "child-care-locator" as a part of its URL   
-    And user selects the "New York" location  
-    And user verifies the search results count  
-    When user clicks on the first child care center  
-    Then user compares the address with the map view  
+  Scenario: View child center address on the map
+    Given user clicks on the "Find a Center" option
+    And user confirms the "child-care-locator" as a part of its URL
+    And user selects the "New York" location
+    And user verifies the search results count
+    When user clicks on the first child care center
+    Then user compares the address with the map view
 
 ```
 
@@ -155,7 +155,6 @@ Then("user compares the address with the map view", async function () {
 
   await childCarePage.compareMapAddress();
 });
-
 ```
 
 ---
@@ -175,7 +174,9 @@ Run the test using:
 ```sh
 yarn cucumber ./cucumber/features/childCare.feature
 ```
-### **Step 9: Results**
-![alt text](image.png)
 
-![alt text](image-1.png)
+### **Step 9: Results**
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)

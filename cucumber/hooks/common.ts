@@ -33,16 +33,19 @@ BeforeAll(async function () {
 Before(async function () {
   this.page = await context.newPage();
   await this.page.goto(baseURL);
- 
-  this.page.on("dialog", async function (dialog: { message: () => any; dismiss: () => any; }) {
-    console.log(`Dialog: ${dialog.message()}`);
-    await dialog.dismiss(); 
-  });
+
+  this.page.on(
+    "dialog",
+    async function (dialog: { message: () => any; dismiss: () => any }) {
+      console.log(`Dialog: ${dialog.message()}`);
+      await dialog.dismiss();
+    },
+  );
 
   try {
-    await this.page.click('#onetrust-accept-btn-handler');
+    await this.page.click("#onetrust-accept-btn-handler");
   } catch (error) {
-    console.log("No cookie popup found");
+   
   }
 });
 
@@ -54,7 +57,7 @@ After(async function (scenario) {
   await this.page?.close();
 });
 
-AfterAll(async function() {
-  await context?.close(); 
+AfterAll(async function () {
+  await context?.close();
   await browser?.close();
 });

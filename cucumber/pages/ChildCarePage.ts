@@ -5,9 +5,8 @@ export class ChildCarePage extends BasePage {
   async clickOnFindCenter() {
     const findCenter = this.page
       .locator(
-        "[class='nav-item displayed-desktop'] [class='btn-nav btn btn-large btn-hollow color-nileblue global_header_findcenter track_cta_click']",
+        "[class='nav-shared txt-nav-hierarchy nav-top js-nav-shared js-nav-top'] [class='nav-item displayed-desktop'] a",
       )
-      .nth(1);
 
     await findCenter.click();
   }
@@ -20,16 +19,16 @@ export class ChildCarePage extends BasePage {
 
   async fillFindCenetr(location: string) {
     const findCenter = this.page
-    .locator("[class='centerResult infoWindow track_center_select covidOpen']")
-    .nth(1);
-    const  addressInput= this.page.locator("#addressInput");
+      .locator(
+        "[class='centerResult infoWindow track_center_select covidOpen']",
+      )
+      .nth(1);
+    const addressInput = this.page.locator("#addressInput");
 
-    await expect(findCenter).toBeVisible({timeout:60000});
-    
-    await this.page.type('#addressInput', location, { delay: 200 });
-    await this.page.getByText('NY, USA', { exact: true }).click();
-    
+    await expect(findCenter).toBeVisible({ timeout: 60000 });
 
+    await this.page.type("#addressInput", location, { delay: 200 });
+    await this.page.getByText("NY, USA", { exact: true }).click();
   }
 
   async confirmCenters() {
@@ -45,18 +44,17 @@ export class ChildCarePage extends BasePage {
   }
 
   async clickChildCareCenter() {
-    const findCenter = this.page.locator('[id="1489"]')
+    const findCenter = this.page.locator('[id="1489"]');
 
     await findCenter.click();
   }
 
   async compareMapAddress() {
-    const trackCenterSelect = this.page
-      .locator("[class='centerResult infoWindow track_center_select covidOpen active']")
-    const headingSection = trackCenterSelect.locator(".heading-section");
-    const centerResultName = headingSection.locator(
-      ".centerResult__name",
+    const trackCenterSelect = this.page.locator(
+      "[class='centerResult infoWindow track_center_select covidOpen active']",
     );
+    const headingSection = trackCenterSelect.locator(".heading-section");
+    const centerResultName = headingSection.locator(".centerResult__name");
     const centerResultAddress = headingSection.locator(
       ".centerResult__address",
     );
@@ -70,5 +68,36 @@ export class ChildCarePage extends BasePage {
 
     expect(centerName?.trim()).toBe(mapheadlineName?.trim());
     expect(centerAddress?.trim()).toBe(mapAddress?.trim());
+  }
+
+  async clickOnSearch() {
+    await this.page.getByRole('button', { name: '' }).nth(1).click();
+  }
+
+  async confirmSearchField() {
+    const searchform = this.page.locator("#subnav-search-desktop-top form");
+    const searchResource = searchform.locator("#search-field");
+  
+
+    await expect(searchResource).toBeVisible();
+  }
+
+  async searchWithResource(searchItem: string) {
+    const searchform = this.page.locator("#subnav-search-desktop-top form");
+    const searchResource = searchform.locator("#search-field");
+    const searchButton = searchform.locator(
+      '[class="btn btn-large btn-solid color-buttercup btn-search"]',
+    );
+
+    await searchResource.fill(searchItem);
+    await searchButton.click();
+  }
+
+  async confirmFirstResource(expectedResouce: string) {
+    const firstResource = this.page.locator("div.results.container > a").nth(0);
+
+    const resourceTitle = firstResource.locator('[class="title"]');
+
+    await expect(resourceTitle).toHaveText(expectedResouce);
   }
 }
